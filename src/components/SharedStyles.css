@@ -1,0 +1,68 @@
+/* Custom keyframes and classes that complement Tailwind settings */
+
+/* Flare button keeps previous styles (unchanged) */
+.flare-button {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  display: inline-block;
+}
+.flare-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 220%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.14) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-30deg);
+  animation: flare 3s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* ABOUT: improved sliding backgrounds using translate for better clarity */
+/* Each slide element is slightly larger than container and translated left/right */
+.about-background-slide {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 0;
+  /* ensure crisp rendering where possible */
+  background-size: cover;
+  will-change: transform;
+  transform: translateX(0);
+}
+
+/* clearer-slide uses translate animation for smoother motion without stretching */
+@keyframes slideTranslate {
+  0% { transform: translateX(-8%); }
+  50% { transform: translateX(8%); }
+  100% { transform: translateX(-8%); }
+}
+
+.clearer-slide {
+  animation: slideTranslate 36s linear infinite;
+}
+
+/* flare animation keyframes */
+@keyframes flare {
+  0% { transform: translateX(-120%) skewX(-30deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  50% { transform: translateX(120%) skewX(-30deg); opacity: 0.9; }
+  100% { transform: translateX(240%) skewX(-30deg); opacity: 0; }
+}
+
+/* optional pulse-slow for navbar icon */
+@keyframes pulse-slow {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.03); opacity: 0.92; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
