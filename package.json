@@ -2,7 +2,6 @@
   "name": "uptown",
   "version": "1.0.0",
   "description": "Uptown Film Business Proposal Website",
-  "main": "src/index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
