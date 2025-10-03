@@ -73,9 +73,9 @@ const About = ({ text, language, assetUrl }) => {
         >
           {[
             { icon: FaInstagram, url: 'https://www.instagram.com/films_ut/' },
-            { icon: FaFacebook, url: '#' },
-            { icon: FaLinkedin, url: '#' },
-            { icon: FaMapMarkedAlt, url: '#' },
+            { icon: FaFacebook, url: 'https://www.facebook.com/people/UP-Town/pfbid02Lfgi9hW3hgwRns8zW1AbqiH8TEXpsbwvUoBT2SmKDpWEULveXYSjC6JxQse9PPA9l/?ref=_ig_profile_ac' },
+            { icon: FaLinkedin, url: 'https://www.linkedin.com/company/uptown-film/' },
+            { icon: FaMapMarkedAlt, url: 'https://maps.app.goo.gl/PCCNDF2rbpz8Y61R7' },
           ].map((link, index) => {
             const Icon = link.icon;
             return (
@@ -106,3 +106,4 @@ const About = ({ text, language, assetUrl }) => {
 };
 
 export default About;
+
