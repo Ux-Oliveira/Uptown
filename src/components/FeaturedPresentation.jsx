@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Modal from './Modal';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+/* Handles slide index state, next/prev controls, RTL-aware button placement, and opens a details modal for the active slide.
+It lets the user browse the project's highlighted films/case studies with consistent UI and a modal for more text.*/
+
 const FeaturedPresentation = ({ text, language, assetUrl }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
@@ -37,7 +40,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
           isRTL ? 'lg:flex-row-reverse' : ''
         } gap-8 lg:gap-12`}
       >
-        {/* 1. Image and Slider Controls */}
+        {/*This is the image and slider controls*/}
         <div className="relative w-full lg:w-1/2 flex-shrink-0 transition-transform duration-500">
           <img
             src={assetUrl(currentSlide.image)}
@@ -116,3 +119,4 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
 };
 
 export default FeaturedPresentation;
+
