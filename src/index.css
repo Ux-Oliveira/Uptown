@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom font imports - assume you link them in index.html for simplicity */
+/*Global stylesheet that imports Tailwind's base/components/utilities and any global overrides*/
 /* e.g., <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@400;700&display=swap" rel="stylesheet"> */
 
 body {
   background-color: #000;
   color: #fff;
-  /* Use the appropriate font based on the language state */
 }
+/*Custom CSS for the sliding background effect in the About section*/
+/*This will be refined in SharedStyles.css*/
+/*Tailwind requires a central entry CSS file so the utility classes are generated and applied*/
 
-/* Custom CSS for the sliding background effect in the About section */
-/* This will be refined in SharedStyles.css */
