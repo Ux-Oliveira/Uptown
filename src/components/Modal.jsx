@@ -1,5 +1,8 @@
 import React from 'react';
 
+/*Renders a centered overlay when is Open is true. Clicking outside or the close button triggers onClose.
+With this file, I've avoided duplicating modal overlay logic and styling across components*/
+
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -25,3 +28,4 @@ const Modal = ({ isOpen, onClose, children }) => {
 };
 
 export default Modal;
+
