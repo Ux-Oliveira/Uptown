@@ -1,6 +1,7 @@
-/* Custom keyframes and classes that complement Tailwind settings */
-
-/* Flare button keeps previous styles (unchanged) */
+/*Custom keyframes and classes that complement Tailwind settings*/
+/*Adds the flare overlay for buttons
+smoother slide animations for About backgrounds, and a slow pulse animation.*/
+/*Flare button keeps previous styles (unchanged)*/
 .flare-button {
   position: relative;
   overflow: hidden;
@@ -21,8 +22,8 @@
   mix-blend-mode: overlay;
 }
 
-/* ABOUT: improved sliding backgrounds using translate for better clarity */
-/* Each slide element is slightly larger than container and translated left/right */
+/*This is the improved sliding backgrounds using translate for better clarity*/
+/*Each slide element is slightly larger than container and translated left/right*/
 .about-background-slide {
   position: absolute;
   top: 0;
@@ -38,7 +39,7 @@
   transform: translateX(0);
 }
 
-/* clearer-slide uses translate animation for smoother motion without stretching */
+/*clearer-slide uses translate animation for smoother motion without stretching*/
 @keyframes slideTranslate {
   0% { transform: translateX(-8%); }
   50% { transform: translateX(8%); }
@@ -49,7 +50,7 @@
   animation: slideTranslate 36s linear infinite;
 }
 
-/* flare animation keyframes */
+/*flare animation keyframes*/
 @keyframes flare {
   0% { transform: translateX(-120%) skewX(-30deg); opacity: 0; }
   10% { opacity: 0.9; }
@@ -57,7 +58,7 @@
   100% { transform: translateX(240%) skewX(-30deg); opacity: 0; }
 }
 
-/* optional pulse-slow for navbar icon */
+/*pulse-slow for navbar icon*/
 @keyframes pulse-slow {
   0% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.03); opacity: 0.92; }
@@ -66,3 +67,4 @@
 .animate-pulse-slow {
   animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
