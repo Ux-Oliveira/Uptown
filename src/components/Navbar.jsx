@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { FaRegNewspaper, FaBars, FaTimes } from 'react-icons/fa';
 import '../components/SharedStyles.css';
 
+/*Central navigation and control point for site interactions
+like changing language, jumping to sections, opening newsletter*/
+
 const Navbar = ({
   text,
   language,
@@ -24,14 +27,14 @@ const Navbar = ({
   return (
     <nav className="fixed top-0 w-full bg-black bg-opacity-90 backdrop-blur-sm z-50 shadow-lg border-b border-ut-red">
       <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-        {/* Logo left */}
+        {/*Logo to the left*/}
         <div className="flex items-center">
           <button onClick={scrollToHome} aria-label="Home" className="flex items-center">
             <img src={assetUrl('uptownicon.png')} alt="Uptown Film Logo" className="h-10 transition duration-300 hover:scale-105" />
           </button>
         </div>
 
-        {/* Desktop menu */}
+        {/*Desktop menu*/}
         <div className="hidden md:flex items-center space-x-4">
           <div className={`flex ${isRTL ? 'space-x-reverse' : ''} space-x-6 text-lg`}>
             {links.map((link, idx) => (
@@ -46,7 +49,7 @@ const Navbar = ({
             ))}
           </div>
 
-          {/* Newsletter icon + language */}
+          {/*Newsletter icon and language icon*/}
           <div className="flex items-center space-x-3">
             <button
               onClick={handleNewsletterClick}
@@ -65,7 +68,7 @@ const Navbar = ({
           </div>
         </div>
 
-        {/* Mobile hamburger (right side) */}
+        {/*Mobile hamburger drop down menu*/}
         <div className="md:hidden flex items-center gap-3">
           <button
             onClick={handleNewsletterClick}
@@ -92,7 +95,7 @@ const Navbar = ({
         </div>
       </div>
 
-      {/* Mobile dropdown */}
+      {/*Mobile dropdown menu*/}
       {open && (
         <div className="md:hidden bg-black bg-opacity-95 border-t border-ut-red">
           <div className={`flex flex-col ${isRTL ? 'items-end pr-6' : 'items-start pl-6'} py-6 space-y-4`}>
@@ -113,3 +116,4 @@ const Navbar = ({
 };
 
 export default Navbar;
+
