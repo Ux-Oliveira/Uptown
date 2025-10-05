@@ -1,7 +1,8 @@
 import React from 'react';
 import '../components/SharedStyles.css';
 import { FaInstagram, FaFacebook, FaLinkedin, FaMapMarkedAlt, FaVideo } from 'react-icons/fa';
-
+/*About section component that shows company info and social links.
+Provides the company description and contact/social entry points for users.*/
 const About = ({ text, language, assetUrl, scrollToHome }) => {
   const isRTL = language === 'ar';
 
@@ -35,7 +36,7 @@ const About = ({ text, language, assetUrl, scrollToHome }) => {
           ))}
         </ul>
 
-        {/* social icons responsive */}
+        {/*social icons made responsive for mobile phones*/}
         <div className={`flex ${isRTL ? 'justify-end' : 'justify-start'} gap-6 pt-4 border-t border-gray-700 flex-wrap`}>
           {[
             { icon: FaInstagram, url: 'https://www.instagram.com/films_ut/' },
@@ -53,7 +54,7 @@ const About = ({ text, language, assetUrl, scrollToHome }) => {
         </div>
       </div>
 
-      {/* scroll to top button */}
+      {/*scroll to top button*/}
       <button
         onClick={() => (typeof scrollToHome === 'function' ? scrollToHome() : window.scrollTo({ top: 0, behavior: 'smooth' }))}
         aria-label="Scroll to Top"
@@ -66,3 +67,4 @@ const About = ({ text, language, assetUrl, scrollToHome }) => {
 };
 
 export default About;
+
