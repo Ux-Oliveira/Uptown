@@ -1,6 +1,8 @@
 import React from 'react';
 import '../components/SharedStyles.css';
 
+/*Shows title, short description and a big Call To Action. Opening newsletter modal via openModal prop*/
+
 const NewsletterSection = ({ text, language, openModal }) => {
   const isRTL = language === 'ar';
   return (
@@ -23,3 +25,4 @@ const NewsletterSection = ({ text, language, openModal }) => {
 };
 
 export default NewsletterSection;
+
