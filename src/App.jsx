@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react'; //Root React component
 import { content } from './assets/data';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -7,22 +7,21 @@ import NewsletterSection from './components/Newsletter';
 import About from './components/About';
 import Modal from './components/Modal';
 
-// Images are in public/ — served at root path
 const assetUrl = (filename) => `/${filename}`;
 
 function App() {
-  // 'ar' for Arabic (default) or 'en' for English
+  //'ar' for Arabic (default) or 'en' for English
   const [language, setLanguage] = useState('ar');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); //if not ar = false - defaulting to en
   const text = content[language];
 
-  // Refs for scrolling
+  //References for scrolling
   const homeRef = useRef(null);
   const featuredRef = useRef(null);
   const newsletterRef = useRef(null);
   const aboutRef = useRef(null);
 
-  // Set document direction based on language
+  //The following sets document direction based on language
   useEffect(() => {
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language === 'ar' ? 'ar' : 'en';
@@ -106,3 +105,5 @@ function App() {
 }
 
 export default App;
+
+//This is ensures Tailwind generates only the needed utility classes and adds project-specific tokens
