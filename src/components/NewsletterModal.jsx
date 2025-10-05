@@ -5,10 +5,10 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
 
     const isRTL = language === 'ar';
 
-    // Simple mock form submission handler
+    //Simple mock-up form submission handler
     const handleSubmit = (e) => {
         e.preventDefault();
-        // In a real application, you would handle subscription logic here.
+        //In the finished application, I would handle subscription logic here.
         alert(isRTL ? 'شكراً لاشتراكك في النشرة الإخبارية!' : 'Thank you for subscribing to our newsletter!');
         onClose();
     };
@@ -16,12 +16,12 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
     return (
         <div 
             className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm p-4"
-            onClick={onClose} // Allows closing by clicking outside the modal
+            onClick={onClose} //This allows closing by clicking outside the modal
         >
             <div 
                 className={`bg-ut-dark p-8 rounded-xl shadow-2xl max-w-lg w-full transform transition-all duration-300 scale-100 border-2 border-ut-blue 
                     ${isRTL ? 'text-right font-arabic' : 'text-left font-sans'}`}
-                onClick={e => e.stopPropagation()} // Prevents closing when clicking inside the modal
+                onClick={e => e.stopPropagation()} //While this prevents closing when clicking inside the modal
             >
                 <div className="flex justify-between items-start mb-6 border-b border-ut-red pb-4">
                     <h2 className="text-3xl font-bold text-ut-red">
@@ -59,5 +59,6 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
         </div>
     );
 };
+
 
 export default NewsletterModal;
