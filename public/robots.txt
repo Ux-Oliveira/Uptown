@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://uptown-pi.vercel.app/sitemap.xml
