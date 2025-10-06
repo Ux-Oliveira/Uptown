@@ -1,6 +1,6 @@
 import React from 'react';
 import '../components/SharedStyles.css';
-import { FaInstagram, FaFacebook, FaLinkedin, FaMapMarkedAlt, FaVideo } from 'react-icons/fa';
+import { FaInstagram, FaSquarexTwitter, FaFacebook, FaLinkedin, FaMapMarkedAlt, FaVideo } from 'react-icons/fa';
 /*About section component that shows company info and social links.
 Provides the company description and contact/social entry points for users.*/
 const About = ({ text, language, assetUrl, scrollToHome }) => {
@@ -68,5 +68,6 @@ const About = ({ text, language, assetUrl, scrollToHome }) => {
 };
 
 export default About;
+
 
 
