@@ -1,15 +1,15 @@
 export const content = {
-    en: {
-        company: "UPTOWN FILM",
-        motto: "A Premier Film Production Company Crafting Impactful Stories.",
-        nav: { /*Static copy/content store for both English and Arabic text.*/
+    en: { /*Static copy/content store for both English and Arabic text.*/
              /*Exports content object with 'en' and 'ar' keys
              holding all UI copy for components such as nav labels*/
+        company: "UPTOWN FILM",
+        motto: "A Premier Film Production Company Crafting Impactful Stories.",
+        nav: {
             home: "Home",
             featured: "Featured Presentation",
             newsletter: "Newsletter",
             about: "About",
-            lang: "عربي", //Button to switch to Arabic
+            lang: "عربي",
         },
         newsletter: {
             h1: "Join our weekly newsletter for exclusive content and film updates!",
@@ -60,14 +60,14 @@ export const content = {
         }
     },
     ar: {
-        company: "أبتاون فيلم",
+        company: "أبتاون\u200C فيلم",
         motto: "شركة رائدة في إنتاج الأفلام وصناعة قصص مؤثرة وعالية الجودة.",
         nav: {
             home: "الرئيسية",
             featured: "عرض مميز",
             newsletter: "النشرة البريدية",
             about: "عن الشركة",
-            lang: "English", //Button to switch to English
+            lang: "English",
         },
         newsletter: {
             h1: "انضم إلى نشرتنا البريدية الأسبوعية للحصول على محتوى حصري وآخر أخبار الأفلام!",
@@ -115,8 +115,6 @@ export const content = {
             next: "التالي",
             prev: "السابق",
             modalButton: "عرض التفاصيل"
-        } /*Centralizes text so switching languages is just switching the
-        'language' key in App.jsx.*/
+        }
     }
 };
-
