@@ -84,6 +84,8 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
           >
             {currentSlide.title}
           </p>
+
+          {/* View Details Button */}
           <button
             onClick={toggleDetailsModal}
             className={`w-full sm:w-auto py-3 px-8 bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
@@ -92,6 +94,18 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
           >
             {text.modalButton}
           </button>
+
+          {/* Learn More Button */}
+          <a
+            href="/FeaturePage"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`block mt-4 w-full sm:w-auto text-center py-3 px-8 bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
+              isRTL ? 'font-arabic' : 'font-sans'
+            }`}
+          >
+            {isRTL ? 'تعرف على المزيد' : 'Learn More'}
+          </a>
         </div>
       </div>
 
@@ -119,4 +133,3 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
 };
 
 export default FeaturedPresentation;
-
