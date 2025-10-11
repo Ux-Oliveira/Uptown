@@ -40,7 +40,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
           isRTL ? 'lg:flex-row-reverse' : ''
         } gap-8 lg:gap-12`}
       >
-        {/*This is the image and slider controls*/}
+        {/* Image and slider controls */}
         <div className="relative w-full lg:w-1/2 flex-shrink-0 transition-transform duration-500">
           <img
             src={assetUrl(currentSlide.image)}
@@ -68,7 +68,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
           </div>
         </div>
 
-        {/* 2. Info and Modal Trigger */}
+        {/* Info and Buttons */}
         <div className={`w-full lg:w-1/2 ${isRTL ? 'text-right' : 'text-left'}`}>
           <h2
             className={`text-2xl sm:text-4xl mb-4 text-ut-blue ${
@@ -85,27 +85,30 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
             {currentSlide.title}
           </p>
 
-          {/* View Details Button */}
-          <button
-            onClick={toggleDetailsModal}
-            className={`w-full sm:w-auto py-3 px-8 bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
-              isRTL ? 'font-arabic' : 'font-sans'
-            }`}
-          >
-            {text.modalButton}
-          </button>
+          {/* Button container for equal sizing */}
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            {/* View Details */}
+            <button
+              onClick={toggleDetailsModal}
+              className={`flex-1 py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
+                isRTL ? 'font-arabic' : 'font-sans'
+              }`}
+            >
+              {text.modalButton}
+            </button>
 
-          {/* Learn More Button */}
-          <a
-            href="/FeaturePage"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`block mt-4 w-full sm:w-auto text-center py-3 px-8 bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
-              isRTL ? 'font-arabic' : 'font-sans'
-            }`}
-          >
-            {isRTL ? 'تعرف على المزيد' : 'Learn More'}
-          </a>
+            {/* Learn More */}
+            <a
+              href="/FeaturePage"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex-1 py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
+                isRTL ? 'font-arabic' : 'font-sans'
+              }`}
+            >
+              {isRTL ? 'تعرف على المزيد' : 'Learn More'}
+            </a>
+          </div>
         </div>
       </div>
 
