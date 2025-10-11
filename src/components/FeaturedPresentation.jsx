@@ -85,12 +85,12 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
             {currentSlide.title}
           </p>
 
-          {/* Button container for equal sizing */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+          {/* Button container for stacked layout */}
+          <div className="flex flex-col gap-4 w-full sm:w-auto">
             {/* View Details */}
             <button
               onClick={toggleDetailsModal}
-              className={`flex-1 py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
+              className={`w-full py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
                 isRTL ? 'font-arabic' : 'font-sans'
               }`}
             >
@@ -102,7 +102,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
               href="/FeaturePage"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex-1 py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
+              className={`w-full py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
                 isRTL ? 'font-arabic' : 'font-sans'
               }`}
             >
