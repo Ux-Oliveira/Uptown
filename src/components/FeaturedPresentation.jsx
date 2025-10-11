@@ -99,7 +99,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
 
             {/* Learn More */}
             <a
-              href="/src/FeaturePage"
+              href="/FeaturePage"
               rel="noopener noreferrer"
               className={`w-full py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
                 isRTL ? 'font-arabic' : 'font-sans'
@@ -135,6 +135,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
 };
 
 export default FeaturedPresentation;
+
 
 
 
