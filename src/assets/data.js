@@ -60,7 +60,7 @@ export const content = {
         }
     },
     ar: {
-        company: "أبتاون\u00A0فيلم", // ← Fixed spacing here
+        company: "أبتاون\u00A0\u00A0\u2003فيلم", // ← increased spacing (two non-breaking spaces + em-space)
         motto: "شركة رائدة في إنتاج الأفلام وصناعة قصص مؤثرة وعالية الجودة.",
         nav: {
             home: "الرئيسية",
