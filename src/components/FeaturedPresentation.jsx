@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-
 /* Handles slide index state, next/prev controls, RTL-aware button placement, and opens a details modal for the active slide.
 It lets the user browse the project's highlighted films/case studies with consistent UI and a modal for more text.*/
-
 const FeaturedPresentation = ({ text, language, assetUrl }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
@@ -135,3 +133,4 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
 };
 
 export default FeaturedPresentation;
+
