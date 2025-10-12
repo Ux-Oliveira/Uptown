@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App.jsx';
-import './index.css'; //this file garantees the application will route through App.jsx and index.scc before the main App.jsx
+import FeaturePage from './FeaturePage.jsx';
+import './index.css'; // Ensures global CSS and Tailwind utilities are applied
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/FeaturePage" element={<FeaturePage />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
 );
-
