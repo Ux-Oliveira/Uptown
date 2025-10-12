@@ -4,7 +4,7 @@ const Home = ({ text, language, assetUrl }) => {
   const isArabic = language === 'ar';
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center bg-black">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-black">
       {/* Motion Graphic Loop - reduced height so headline sits closer to the next section */}
       <div className="w-full h-40 sm:h-56 md:h-72 flex justify-center items-center overflow-hidden bg-black">
         <img
@@ -40,3 +40,4 @@ const Home = ({ text, language, assetUrl }) => {
 };
 
 export default Home;
+
