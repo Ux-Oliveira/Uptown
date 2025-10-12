@@ -60,7 +60,7 @@ export const content = {
 
   ar: {
     company: "أبتاون‌ فيلم", // restored original spacing between words
-    motto: "شركة رائدة في إنتاج الأفلام وصناعة قصص مؤثرة وعالية الجودة.", // plain motto text
+   // motto: "شركة رائدة في إنتاج الأفلام وصناعة قصص مؤثرة وعالية الجودة.", // plain motto text
     nav: {
       home: "الرئيسية",
       featured: "عرض مميز",
@@ -117,3 +117,4 @@ export const content = {
     },
   },
 };
+
