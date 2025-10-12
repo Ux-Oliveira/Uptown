@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
@@ -98,15 +99,14 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
             </button>
 
             {/* Learn More */}
-            <a
-              href="/FeaturePage"
-              rel="noopener noreferrer"
+            <Link
+              to="/FeaturePage"
               className={`w-full py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
                 isRTL ? 'font-arabic' : 'font-sans'
               }`}
             >
               {isRTL ? 'تعرف على المزيد' : 'Learn More'}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -135,8 +135,3 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
 };
 
 export default FeaturedPresentation;
-
-
-
-
-
