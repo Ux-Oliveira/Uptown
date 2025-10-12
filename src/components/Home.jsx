@@ -29,9 +29,9 @@ const Home = ({ text, language, assetUrl }) => {
 
         {/* Motto with more vertical spacing */}
         <p
-          className={`mt-10 text-xl text-gray-400 max-w-2xl mx-auto ${
+          className={`mt-6 text-xl text-gray-400 max-w-2xl mx-auto ${
             isArabic
-              ? 'font-arabic text-lg md:text-xl leading-relaxed'
+              ? 'font-arabic text-lg md:text-xl leading-normal'
               : 'font-sans text-xl leading-relaxed'
           }`}
         >
@@ -43,3 +43,4 @@ const Home = ({ text, language, assetUrl }) => {
 };
 
 export default Home;
+
