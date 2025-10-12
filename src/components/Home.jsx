@@ -20,7 +20,7 @@ const Home = ({ text, language, assetUrl }) => {
         <h1
           className={`font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r from-ut-red to-ut-blue ${
             isArabic
-              ? 'font-arabic text-5xl sm:text-6xl md:text-7xl leading-snug'
+              ? 'font-arabic text-5xl sm:text-6xl md:text-7xl leading-snug md:leading-[1.6]'
               : 'font-sans text-6xl sm:text-7xl md:text-8xl leading-tight'
           }`}
         >
@@ -29,9 +29,9 @@ const Home = ({ text, language, assetUrl }) => {
 
         {/* Motto with more vertical spacing */}
         <p
-          className={`mt-6 text-xl text-gray-400 max-w-2xl mx-auto ${
+          className={`mt-10 text-xl text-gray-400 max-w-2xl mx-auto ${
             isArabic
-              ? 'font-arabic text-lg md:text-xl leading-normal'
+              ? 'font-arabic text-lg md:text-xl leading-relaxed'
               : 'font-sans text-xl leading-relaxed'
           }`}
         >
@@ -43,4 +43,5 @@ const Home = ({ text, language, assetUrl }) => {
 };
 
 export default Home;
+
 
