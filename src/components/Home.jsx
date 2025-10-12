@@ -16,17 +16,20 @@ const Home = ({ text, language, assetUrl }) => {
 
       {/* Text Below GIF */}
       <div className="text-center mt-10 px-4">
+        {/* Company name */}
         <h1
-          className={`font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r from-ut-red to-ut-blue
+          className={`font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r from-ut-red to-ut-blue 
             ${isArabic
-              ? 'font-arabic text-6xl sm:text-7xl md:text-8xl leading-[1.4]'
+              ? 'font-arabic text-5xl sm:text-6xl md:text-7xl leading-snug'
               : 'font-sans text-6xl sm:text-7xl md:text-8xl leading-tight'
             }`}
         >
           {text.company}
         </h1>
+
+        {/* Motto with more vertical spacing */}
         <p
-          className={`mt-6 text-xl text-gray-400 max-w-2xl mx-auto 
+          className={`mt-10 text-xl text-gray-400 max-w-2xl mx-auto 
             ${isArabic ? 'font-arabic text-lg md:text-xl leading-relaxed' : 'font-sans text-xl leading-relaxed'}`}
         >
           {text.motto}
