@@ -1,7 +1,5 @@
 export const content = {
-    en: { /*Static copy/content store for both English and Arabic text.*/
-             /*Exports content object with 'en' and 'ar' keys
-             holding all UI copy for components such as nav labels*/
+    en: {
         company: "UPTOWN FILM",
         motto: "A Premier Film Production Company Crafting Impactful Stories.",
         nav: {
@@ -60,8 +58,8 @@ export const content = {
         }
     },
     ar: {
-        company: "أبتاون\u00A0\u00A0\u2003فيلم", // ← increased spacing (two non-breaking spaces + em-space)
-        motto: "شركة رائدة في إنتاج الأفلام وصناعة قصص مؤثرة وعالية الجودة.",
+        company: "أبتاون‌ فيلم", // restored original spacing
+        motto: "<br />شركة رائدة في إنتاج الأفلام وصناعة قصص مؤثرة وعالية الجودة.", // added line break
         nav: {
             home: "الرئيسية",
             featured: "عرض مميز",
