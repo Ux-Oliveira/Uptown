@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import NewsletterModal from './components/NewsletterModal';
 import { content } from './assets/data';
-import { FaArrowUp } from 'react-icons/fa';
+import { FaVideo } from 'react-icons/fa';
 
 const assetUrl = (filename) => `/${filename}`;
 
