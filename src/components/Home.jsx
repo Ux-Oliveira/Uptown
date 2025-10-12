@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import NewsletterModal from './NewsletterModal';
-import { content } from './assets/data';
+import { content } from '../assets/data';
 import { FaVideo } from 'react-icons/fa'; // changed icon here
 
 const assetUrl = (filename) => `/${filename}`;
@@ -223,4 +223,5 @@ function FeaturePage() {
 }
 
 export default FeaturePage;
+
 
