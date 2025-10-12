@@ -20,7 +20,16 @@ function FeaturePage() {
       style={{ fontFamily: language === 'en' ? 'Bebas Neue, sans-serif' : 'Cairo, sans-serif' }}
     >
       {/* Navbar */}
-      <Navbar text={text.nav} language={language} toggleLanguage={() => {}} />
+      <Navbar
+        text={text.nav}
+        language={language}
+        toggleLanguage={() => {}}
+        scrollToHome={() => {}}
+        scrollToFeatured={() => {}}
+        handleNewsletterClick={() => {}}
+        scrollToAbout={() => {}}
+        assetUrl={assetUrl}
+      />
 
       {/* Main Content */}
       <main className="pt-24 px-6 sm:px-12 lg:px-24 space-y-24">
