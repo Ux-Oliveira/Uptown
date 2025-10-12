@@ -1,66 +1,225 @@
-import React, { useState } from 'react';
-import Modal from './Modal';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import NewsletterModal from './components/NewsletterModal';
+import { content } from './assets/data';
+import { FaVideo } from 'react-icons/fa'; // changed icon here
 
-const FeaturedPresentation = ({ text, language, assetUrl }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
-  const slides = text.slides;
-  const currentSlide = slides[currentIndex];
+const assetUrl = (filename) => `/${filename}`;
+
+function FeaturePage() {
+  const [language, setLanguage] = useState(
+    document.documentElement.lang === 'ar' ? 'ar' : 'en'
+  );
+  const [showNewsletter, setShowNewsletter] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  const text = content[language];
   const isRTL = language === 'ar';
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  // Apply direction + title dynamically
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.title =
+      language === 'ar'
+        ? 'صراع داخلي - أبتاون فيلم'
+        : 'Inner Conflict – Uptown Film';
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+  }, [language, isRTL]);
+
+  // Scroll button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY > 200);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Scroll-to-top handler
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  // Language toggle
+  const toggleLanguage = () => setLanguage((prev) => (prev === 'en' ? 'ar' : 'en'));
+
+  // Navigate to home (replace with your actual homepage route)
+  const scrollToHome = () => {
+    window.location.href = '/';
   };
-
-  const toggleDetailsModal = () => setIsDetailsModalOpen((p) => !p);
-
-  // Determines the button position based on LTR/RTL
-  const LeftButton = isRTL ? FaChevronRight : FaChevronLeft;
-  const RightButton = isRTL ? FaChevronLeft : FaChevronRight;
 
   return (
-    <div className="container mx-auto px-6">
-      <h1 className={`text-5xl font-bold text-center mb-16 ${isRTL ? 'font-arabic' : 'font-sans'} text-ut-red`}>{text.h1}</h1>
+    <div
+      className="min-h-screen bg-black text-white"
+      style={{
+        fontFamily:
+          language === 'en' ? 'Bebas Neue, sans-serif' : 'Cairo, sans-serif',
+      }}
+    >
+      {/* Navbar */}
+      <Navbar
+        text={{
+          home: text.nav.home,
+          lang: text.nav.lang,
+          newsletter: text.nav.newsletter,
+        }}
+        language={language}
+        toggleLanguage={toggleLanguage}
+        scrollToHome={scrollToHome}
+        handleNewsletterClick={() => setShowNewsletter(true)}
+        assetUrl={assetUrl}
+      />
 
-      <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''} gap-12`}>
-        {/* 1. Image and Slider Controls */}
-        <div className="relative w-1/2 flex-shrink-0 transition-transform duration-500">
-          <img src={assetUrl(currentSlide.image)} alt={currentSlide.role} className="w-full h-auto object-cover rounded-lg shadow-2xl border-2 border-ut-blue" />
-          <div className="absolute inset-0 flex items-center justify-between">
-            <button onClick={isRTL ? prevSlide : nextSlide} className={`p-3 text-4xl text-white bg-black bg-opacity-30 hover:bg-opacity-70 transition-all duration-300 ${isRTL ? 'right-0' : 'left-0'}`}>
-              <LeftButton />
-            </button>
+      {/* Newsletter modal */}
+      <NewsletterModal
+        isOpen={showNewsletter}
+        onClose={() => setShowNewsletter(false)}
+        text={{
+          h2: text.newsletter.title,
+          p: text.newsletter.h1,
+          placeholder: text.newsletter.emailPlaceholder,
+          buttonText: text.newsletter.button,
+        }}
+        language={language}
+      />
 
-            <button onClick={isRTL ? nextSlide : prevSlide} className={`p-3 text-4xl text-white bg-black bg-opacity-30 hover:bg-opacity-70 transition-all duration-300 ${isRTL ? 'left-0' : 'right-0'}`}>
-              <RightButton />
-            </button>
+      {/* Main Content */}
+      <main className="pt-24 px-6 sm:px-12 lg:px-24 space-y-24">
+        {/* Header */}
+        <section className="text-center max-w-3xl mx-auto">
+          <h1
+            className={`text-4xl sm:text-6xl font-bold text-ut-red mb-6 ${
+              isRTL ? 'font-arabic' : 'font-sans'
+            }`}
+          >
+            {language === 'ar'
+              ? 'صراع داخلي: السينما السعودية بمعايير عالمية'
+              : 'Inner Conflict: Saudi Cinema with International Standards'}
+          </h1>
+          <p
+            className={`text-gray-400 text-lg ${
+              isRTL ? 'font-arabic' : 'font-sans'
+            }`}
+          >
+            {language === 'ar'
+              ? 'إنتاج من شركة أبتاون فيلم، يجمع بين الدراما والحركة والتشويق، ليقدم تجربة سينمائية سعودية فريدة ذات معايير عالمية.'
+              : 'Produced by Uptown Film, combining action, drama, and suspense — delivering a Saudi cinematic experience crafted to international standards.'}
+          </p>
+        </section>
+
+        {/* Paragraph 1 - Image Left */}
+        <section
+          className={`flex flex-col lg:flex-row items-center gap-8 ${
+            isRTL ? 'lg:flex-row-reverse' : ''
+          }`}
+        >
+          <img
+            src={assetUrl('Inner.jpg')}
+            alt="Inner Conflict Poster"
+            className="w-full lg:w-1/2 rounded-lg shadow-2xl border-2 border-ut-blue"
+          />
+          <div className="lg:w-1/2 space-y-4">
+            <h2
+              className={`text-3xl text-ut-blue font-bold ${
+                isRTL ? 'font-arabic' : 'font-sans'
+              }`}
+            >
+              {language === 'ar' ? 'رسائل إنسانية عميقة' : 'Deep Human Messages'}
+            </h2>
+            <p
+              className={`text-gray-300 leading-relaxed ${
+                isRTL ? 'font-arabic' : 'font-sans'
+              }`}
+            >
+              {language === 'ar'
+                ? 'يتجاوز فيلم "صراع داخلي" كونه عملاً ترفيهيًا فقط؛ إذ يحمل في جوهره رسائل إنسانية وفلسفية عميقة. يتناول الصراع الأبدي بين الخير والشر كما يتجلى داخل كل إنسان، مؤكداً أن انتصار الخير حتمي مهما طال الصراع.'
+                : '“Inner Conflict” goes beyond entertainment — it conveys a deep human message about the eternal struggle between good and evil within every person. The story emphasizes that good will always prevail, giving the film an inspiring and reflective tone.'}
+            </p>
           </div>
-        </div>
+        </section>
 
-        {/* 2. Info and Modal Trigger */}
-        <div className={`w-1/2 ${isRTL ? 'text-right' : 'text-left'}`}>
-          <h2 className={`text-4xl mb-4 text-ut-blue ${isRTL ? 'font-arabic' : 'font-sans'}`}>{currentSlide.role}</h2>
-          <p className={`text-xl mb-6 text-gray-300 ${isRTL ? 'font-arabic' : 'font-sans'}`}>{currentSlide.title}</p>
-          <button onClick={toggleDetailsModal} className={`py-3 px-8 bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${isRTL ? 'font-arabic' : 'font-sans'}`}>
-            {text.modalButton}
-          </button>
-        </div>
-      </div>
+        {/* Paragraph 2 - Image Right */}
+        <section
+          className={`flex flex-col lg:flex-row items-center gap-8 ${
+            isRTL ? 'lg:flex-row' : 'lg:flex-row-reverse'
+          }`}
+        >
+          <img
+            src={assetUrl('inner2.jpg')}
+            alt="Inner Conflict Scene"
+            className="w-full lg:w-1/2 rounded-lg shadow-2xl border-2 border-ut-blue"
+          />
+          <div className="lg:w-1/2 space-y-4">
+            <h2
+              className={`text-3xl text-ut-blue font-bold ${
+                isRTL ? 'font-arabic' : 'font-sans'
+              }`}
+            >
+              {language === 'ar' ? 'الصراع الإنساني الداخلي' : 'The Inner Human Struggle'}
+            </h2>
+            <p
+              className={`text-gray-300 leading-relaxed ${
+                isRTL ? 'font-arabic' : 'font-sans'
+              }`}
+            >
+              {language === 'ar'
+                ? 'يعرض الفيلم صراعات الإنسان اليومية بين القيم النبيلة والإغراءات المدمرة. من خلال شخصيات متعددة، يُظهر الفيلم الصراع الداخلي الذي يواجهه كل فرد في سعيه نحو التوازن الأخلاقي والروحي.'
+                : 'The film explores humanity’s daily internal conflicts — between noble values and destructive temptations. Through multiple characters, it portrays the complex moral and emotional struggles each person faces.'}
+            </p>
+          </div>
+        </section>
 
-      {/* Details Modal */}
-      <Modal isOpen={isDetailsModalOpen} onClose={toggleDetailsModal}>
-        <div className="p-10 max-w-2xl w-full bg-ut-dark border-4 border-ut-red rounded-xl shadow-2xl">
-          <h2 className={`text-4xl mb-4 text-ut-red ${isRTL ? 'font-arabic' : 'font-sans'}`}>{currentSlide.title}</h2>
-          <p className={`text-lg text-gray-200 ${isRTL ? 'font-arabic' : 'font-sans'}`}>{currentSlide.text}</p>
-        </div>
-      </Modal>
+        {/* Paragraph 3 - Image Left */}
+        <section
+          className={`flex flex-col lg:flex-row items-center gap-8 ${
+            isRTL ? 'lg:flex-row-reverse' : ''
+          }`}
+        >
+          <img
+            src={assetUrl('inner3.jpg')}
+            alt="Inner Conflict Cast"
+            className="w-full lg:w-1/2 rounded-lg shadow-2xl border-2 border-ut-blue"
+          />
+          <div className="lg:w-1/2 space-y-4">
+            <h2
+              className={`text-3xl text-ut-blue font-bold ${
+                isRTL ? 'font-arabic' : 'font-sans'
+              }`}
+            >
+              {language === 'ar'
+                ? 'الرسالة الاجتماعية والتعليمية'
+                : 'A Social and Educational Message'}
+            </h2>
+            <p
+              className={`text-gray-300 leading-relaxed ${
+                isRTL ? 'font-arabic' : 'font-sans'
+              }`}
+            >
+              {language === 'ar'
+                ? 'يخاطب الفيلم فئة الشباب تحديدًا، مقدماً تجربة ملهمة تتناول قضايا التربية الإيجابية وضبط النفس والضغوط الاجتماعية. كما يسلط الضوء على مخاطر الإدمان وأهمية الصحبة الصالحة، في دعوة للتفكير في بناء الفرد والمجتمع.'
+                : '“Inner Conflict” speaks directly to youth — tackling themes of discipline, education, and social pressure. It raises awareness about addiction and the power of good companionship, turning the film into an invitation to reflect on personal and social growth.'}
+            </p>
+          </div>
+        </section>
+      </main>
+
+      {/* Scroll to top button */}
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-ut-red text-white p-3 rounded-full shadow-lg hover:bg-ut-blue transition-all duration-300"
+          aria-label={isRTL ? 'العودة للأعلى' : 'Back to top'}
+        >
+          <FaVideo /> {/* changed icon here */}
+        </button>
+      )}
+
+      {/* Footer */}
+      <footer className="mt-24 py-6 bg-black text-center text-gray-500 text-sm border-t border-gray-700">
+        © 2025 UPTOWN FILM — All Rights Reserved.
+      </footer>
     </div>
   );
-};
+}
 
-export default FeaturedPresentation;
+export default FeaturePage;
