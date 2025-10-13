@@ -29,7 +29,7 @@ export const content = {
         "Professional execution of storyboards for shooting scenes at an international level.",
       ],
     },
-    footerCredit: "Landing page by Henrique Oliveira",
+    footerCredit: "© 2025 UPTOWN FILM — All Rights Reserved",
     featured: {
       h1: "Featured Presentation: Inner Conflict",
       slides: [
@@ -88,7 +88,7 @@ export const content = {
         "تنفيذ Storyboard احترافي لتصوير المشاهد على مستوى عالمي.",
       ],
     },
-    footerCredit: "صفحة الهبوط من تصميم هنريك أوليفيرا",
+    footerCredit: "© 2025 UPTOWN FILM — All Rights Reserved",
     featured: {
       h1: "عرض مميز: صراع داخلي",
       slides: [
@@ -117,4 +117,5 @@ export const content = {
     },
   },
 };
+
 
