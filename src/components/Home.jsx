@@ -4,9 +4,10 @@ const Home = ({ text, language, assetUrl }) => {
   const isArabic = language === 'ar';
 
   return (
-    <div className="min-h-[90vh] flex flex-col justify-center items-center bg-black">
+    // reduced total height and removed forced vertical centering
+    <div className="bg-black flex flex-col items-center justify-start pt-16 pb-10">
       {/* Motion Graphic Loop */}
-      <div className="w-full h-[45vh] flex justify-center items-center overflow-hidden bg-black">
+      <div className="w-full max-h-[40vh] flex justify-center items-center overflow-hidden bg-black">
         <img
           src={assetUrl('motion-graph.gif')}
           alt="Uptown Film Motion Graphic"
