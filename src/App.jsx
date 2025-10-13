@@ -51,19 +51,27 @@ function App() {
 
       <Modal isOpen={isModalOpen} onClose={toggleModal}>
         <div className="p-8 max-w-lg w-full bg-ut-dark border-2 border-ut-red rounded-lg shadow-2xl">
-          <h1 className={`text-3xl font-bold mb-6 text-center text-ut-red ${language === 'ar' ? 'font-arabic' : 'font-sans'}`}>
+          <h1
+            className={`text-3xl font-bold mb-6 text-center text-ut-red ${
+              language === 'ar' ? 'font-arabic' : 'font-sans'
+            }`}
+          >
             {text.newsletter.h1}
           </h1>
           <form className="flex flex-col space-y-4" onSubmit={(e) => e.preventDefault()}>
             <input
               type="text"
               placeholder={text.newsletter.namePlaceholder}
-              className={`p-3 bg-gray-900 border border-ut-blue rounded-md text-white placeholder-gray-500 transition duration-300 focus:border-ut-red focus:outline-none ${language === 'ar' ? 'text-right' : 'text-left'}`}
+              className={`p-3 bg-gray-900 border border-ut-blue rounded-md text-white placeholder-gray-500 transition duration-300 focus:border-ut-red focus:outline-none ${
+                language === 'ar' ? 'text-right' : 'text-left'
+              }`}
             />
             <input
               type="email"
               placeholder={text.newsletter.emailPlaceholder}
-              className={`p-3 bg-gray-900 border border-ut-blue rounded-md text-white placeholder-gray-500 transition duration-300 focus:border-ut-red focus:outline-none ${language === 'ar' ? 'text-right' : 'text-left'}`}
+              className={`p-3 bg-gray-900 border border-ut-blue rounded-md text-white placeholder-gray-500 transition duration-300 focus:border-ut-red focus:outline-none ${
+                language === 'ar' ? 'text-right' : 'text-left'
+              }`}
             />
             <button
               type="submit"
@@ -81,7 +89,8 @@ function App() {
           <Home text={text} language={language} assetUrl={assetUrl} />
         </section>
 
-        <section id="featured" ref={featuredRef} className="py-20">
+        {/* Reduced top padding here */}
+        <section id="featured" ref={featuredRef} className="pt-8 pb-20">
           <FeaturedPresentation text={text.featured} language={language} assetUrl={assetUrl} />
         </section>
 
