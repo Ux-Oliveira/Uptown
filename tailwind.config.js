@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Bebas Neue', 'sans-serif'], // Sleek font for English
-        'arabic': ['Cairo', 'sans-serif'],   // Clean Arabic font
+        'sans': ['Bebas Neue', 'sans-serif'], //Sleek font for English
+        'arabic': ['Cairo', 'sans-serif'],   //Clean Arabic font
       },
       colors: {
         'ut-red': '#E02B37',
@@ -37,4 +37,5 @@ module.exports = {
     },
   },
   plugins: [],
+
 }
