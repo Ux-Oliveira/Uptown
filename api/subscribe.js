@@ -21,9 +21,7 @@ export default async function handler(req, res) {
 
     // extract data center from API key (part after dash)
     const dc = API_KEY.split('-')[1];
-    if (!dc) {
-      return res.status(500).json({ error: 'Invalid MAILCHIMP_API_KEY format' });
-    }
+    if (!dc) return res.status(500).json({ error: 'Invalid MAILCHIMP_API_KEY format' });
 
     // subscriber hash required for PUT upsert
     const emailLower = email.trim().toLowerCase();
@@ -34,7 +32,7 @@ export default async function handler(req, res) {
     // prepare body: 'pending' triggers double opt-in
     const body = {
       email_address: emailLower,
-      status: 'pending', // use 'subscribed' if you want to skip confirmation
+      status: 'pending', // double opt-in; use 'subscribed' for single opt-in
       merge_fields: { FNAME: name || '' },
     };
 
