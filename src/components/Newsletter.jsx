@@ -11,7 +11,9 @@ const NewsletterSection = ({ text, language, openModal }) => {
         {text.title}
       </h2>
 
-      <p className={`max-w-xl text-center text-gray-300 mb-6 ${isRTL ? 'font-arabic' : 'font-sans'}`}>{text.h1}</p>
+      <p className={`max-w-xl text-center text-gray-300 mb-6 ${isRTL ? 'font-arabic' : 'font-sans'}`}>
+        {text.h1}
+      </p>
 
       <button
         onClick={openModal}
@@ -25,4 +27,3 @@ const NewsletterSection = ({ text, language, openModal }) => {
 };
 
 export default NewsletterSection;
-
