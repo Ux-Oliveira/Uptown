@@ -113,11 +113,11 @@ function FeaturePage() {
             isRTL ? 'lg:flex-row-reverse' : ''
           }`}
         >
-          <img
+          <div><a href="https://www.instagram.com/films_ut/" target="_blank"><img
             src={assetUrl('Inner.jpg')}
             alt="Inner Conflict Poster"
             className="w-full lg:w-1/2 rounded-lg shadow-2xl border-2 border-ut-blue"
-          />
+          /></a></div>
           <div className="lg:w-1/2 space-y-4">
             <h2
               className={`text-3xl text-ut-blue font-bold ${
