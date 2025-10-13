@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import FeaturedPresentation from './components/FeaturedPresentation';
 import NewsletterSection from './components/Newsletter';
-import NewsletterModal from './components/NewsletterModal'; // <- use working modal
+import NewsletterModal from './components/NewsletterModal';
 import About from './components/About';
 
 const assetUrl = (filename) => `/${filename}`;
@@ -49,7 +49,7 @@ function App() {
         assetUrl={assetUrl}
       />
 
-      {/* Working newsletter modal with all original modal content */}
+      {}
       <NewsletterModal
         isOpen={isModalOpen}
         onClose={toggleModal}
@@ -83,3 +83,4 @@ function App() {
 }
 
 export default App;
+
