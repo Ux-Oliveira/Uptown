@@ -1,6 +1,6 @@
 import React from 'react';
 import '../components/SharedStyles.css';
-import { FaInstagram, FaFacebook, FaLinkedin, FaMapMarkedAlt, FaVideo, FaxTwitter } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaLinkedin, FaMapMarkedAlt, FaVideo, FaX } from 'react-icons/fa';
 /*About section component that shows company info and social links.
 Provides the company description and contact/social entry points for users.*/
 const About = ({ text, language, assetUrl, scrollToHome }) => {
@@ -43,7 +43,7 @@ const About = ({ text, language, assetUrl, scrollToHome }) => {
             { icon: FaFacebook, url: 'https://www.facebook.com/people/UP-Town/pfbid02Lfgi9hW3hgwRns8zW1AbqiH8TEXpsbwvUoBT2SmKDpWEULveXYSjC6JxQse9PPA9l/?ref=_ig_profile_ac' },
             { icon: FaLinkedin, url: 'https://www.linkedin.com/company/uptown-film/' },
             { icon: FaMapMarkedAlt, url: 'https://maps.app.goo.gl/PCCNDF2rbpz8Y61R7' },
-            { icon: FaxTwitter, url: 'https://x.com/films_ut' },
+            { icon: FaX, url: 'https://x.com/films_ut' },
       
           ].map((link, index) => {
             const Icon = link.icon;
@@ -69,6 +69,7 @@ const About = ({ text, language, assetUrl, scrollToHome }) => {
 };
 
 export default About;
+
 
 
 
