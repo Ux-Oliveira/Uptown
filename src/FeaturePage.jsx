@@ -144,7 +144,7 @@ function FeaturePage() {
             isRTL ? 'lg:flex-row' : 'lg:flex-row-reverse'
           }`}
         >
-          <div><a href="https://www.instagram.com/laylamalillk/p/DLYGBuAoucs/" target="_blank"<img
+          <div><a href="https://www.instagram.com/laylamalillk/p/DLYGBuAoucs/" target="_blank"><img
             src={assetUrl('inner2.jpg')}
             alt="Inner Conflict Scene"
             className="w-full lg:w-1/2 rounded-lg shadow-2xl border-2 border-ut-blue"
@@ -175,7 +175,7 @@ function FeaturePage() {
             isRTL ? 'lg:flex-row-reverse' : ''
           }`}
         >
-          <div><a href="https://www.instagram.com/p/DLXsNn5szMH/?img_index=1" target="_blank"<img
+          <div><a href="https://www.instagram.com/p/DLXsNn5szMH/?img_index=1" target="_blank"><img
             src={assetUrl('inner3.jpg')}
             alt="Inner Conflict Cast"
             className="w-full lg:w-1/2 rounded-lg shadow-2xl border-2 border-ut-blue"
