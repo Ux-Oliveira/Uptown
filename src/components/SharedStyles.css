@@ -68,3 +68,25 @@ smoother slide animations for About backgrounds, and a slow pulse animation.*/
   animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+/* Subtle infinite pulse for images */
+@keyframes imagePulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-image-pulse {
+  animation: imagePulse 6s ease-in-out infinite;
+}
+
+
+
