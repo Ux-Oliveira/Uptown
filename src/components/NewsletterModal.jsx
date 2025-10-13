@@ -1,3 +1,4 @@
+//This is the newsletter pop up! The heart of the page
 import React, { useState } from 'react';
 
 const NewsletterModal = ({ isOpen, onClose, text, language }) => {
@@ -64,19 +65,19 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Big H1 title */}
+        {/*Big H1 title*/}
         <h1 className={`text-3xl font-bold mb-4 text-ut-red ${isRTL ? 'font-arabic text-right' : 'font-sans text-left'}`}>
           {text.h1}
         </h1>
 
-        {/* Optional small subtitle */}
+        {/*Small subtitle*/}
         {text.title && (
           <h2 className={`text-2xl font-bold text-ut-red mb-2 ${isRTL ? 'font-arabic' : 'font-sans'}`}>
             {text.title}
           </h2>
         )}
 
-        {/* Optional description paragraph */}
+        {/*Optional description paragraph*/}
         {text.description && (
           <p className="text-gray-300 mb-6 text-lg">{text.description}</p>
         )}
@@ -116,3 +117,4 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
 };
 
 export default NewsletterModal;
+
