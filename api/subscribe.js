@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     if (!email || typeof email !== 'string') return res.status(400).json({ error: 'Missing email' });
 
     const API_KEY = process.env.MAILCHIMP_API_KEY;
-    const LIST_ID = process.env.'1ccde52e54';
+    const LIST_ID = process.env.MAILCHIMP_LIST_ID;
 
     if (!API_KEY || !LIST_ID) {
       return res.status(500).json({ error: 'Mailchimp not configured (missing env vars)' });
