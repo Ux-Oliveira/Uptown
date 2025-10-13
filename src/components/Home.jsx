@@ -4,9 +4,8 @@ const Home = ({ text, language, assetUrl }) => {
   const isArabic = language === 'ar';
 
   return (
-    // reduced total height and removed forced vertical centering
     <div className="bg-black flex flex-col items-center justify-start pt-16 pb-10">
-      {/* Motion Graphic Loop */}
+      {/*Motion Graphic Loop*/}
       <div className="w-full max-h-[60vh] flex justify-center items-center overflow-hidden bg-black">
         <img
           src={assetUrl('motion-graph.gif')}
@@ -15,9 +14,9 @@ const Home = ({ text, language, assetUrl }) => {
         />
       </div>
 
-      {/* Text Below GIF */}
+      {/*Text Below GIF*/}
       <div className="text-center mt-6 px-4">
-        {/* Company name */}
+        {/*Company name*/}
         <h1
           className={`font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r from-ut-red to-ut-blue ${
             isArabic
@@ -28,7 +27,7 @@ const Home = ({ text, language, assetUrl }) => {
           {text.company}
         </h1>
 
-        {/* Motto with spacing */}
+        {/*Motto with spacing*/}
         <p
           className={`mt-6 text-xl text-gray-400 max-w-2xl mx-auto ${
             isArabic
@@ -44,4 +43,5 @@ const Home = ({ text, language, assetUrl }) => {
 };
 
 export default Home;
+
 
