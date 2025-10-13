@@ -87,15 +87,16 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
               isRTL ? 'rtl' : 'ltr'
             }`}
           />
-          <input
-            name="email"
-            type="email"
-            required
-            placeholder={text.placeholder}
-            className={`w-full p-3 rounded-lg bg-gray-800 border border-ut-blue focus:border-ut-red focus:ring-1 focus:ring-ut-red text-white placeholder-gray-500 transition duration-200 ${
-              isRTL ? 'rtl' : 'ltr'
-            }`}
-          />
+         <input
+          name="email"
+          type="email"
+          required
+          placeholder={isRTL ? text.emailPlaceholder : text.emailPlaceholder} // <-- use emailPlaceholder
+         className={`w-full p-3 rounded-lg bg-gray-800 border border-ut-blue focus:border-ut-red focus:ring-1 focus:ring-ut-red text-white placeholder-gray-500 transition duration-200 ${
+    isRTL ? 'rtl' : 'ltr'
+  }`}
+/>
+
           <button
             type="submit"
             disabled={loading}
@@ -112,3 +113,4 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
 };
 
 export default NewsletterModal;
+
