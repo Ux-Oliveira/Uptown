@@ -7,7 +7,7 @@ const Home = ({ text, language, assetUrl }) => {
     // reduced total height and removed forced vertical centering
     <div className="bg-black flex flex-col items-center justify-start pt-16 pb-10">
       {/* Motion Graphic Loop */}
-      <div className="w-full max-h-[40vh] flex justify-center items-center overflow-hidden bg-black">
+      <div className="w-full max-h-[60vh] flex justify-center items-center overflow-hidden bg-black">
         <img
           src={assetUrl('motion-graph.gif')}
           alt="Uptown Film Motion Graphic"
@@ -44,3 +44,4 @@ const Home = ({ text, language, assetUrl }) => {
 };
 
 export default Home;
+
