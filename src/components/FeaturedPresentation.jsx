@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-/* Handles slide index state, next/prev controls, RTL-aware button placement, and opens a details modal for the active slide.
+/*This handles slide index state, next/prev controls, RTL-aware button placement, and opens a details modal for the active slide.
 It lets the user browse the project's highlighted films/case studies with consistent UI and a modal for more text.*/
 const FeaturedPresentation = ({ text, language, assetUrl }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,7 +39,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
           isRTL ? 'lg:flex-row-reverse' : ''
         } gap-8 lg:gap-12`}
       >
-        {/* Image and slider controls */}
+        {/*Image and slider controls*/}
         <div className="relative w-full lg:w-1/2 flex-shrink-0 transition-transform duration-500">
           <img
             src={assetUrl(currentSlide.image)}
@@ -67,7 +67,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
           </div>
         </div>
 
-        {/* Info and Buttons */}
+        {/*This sets up the pages info and buttons*/}
         <div className={`w-full lg:w-1/2 ${isRTL ? 'text-right' : 'text-left'}`}>
           <h2
             className={`text-2xl sm:text-4xl mb-4 text-ut-blue ${
@@ -84,9 +84,9 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
             {currentSlide.title}
           </p>
 
-          {/* Button container for stacked layout */}
+          {/*Button container for stacked layout*/}
           <div className="flex flex-col gap-4 w-full sm:w-auto">
-            {/* View Details */}
+            {/*View Details button*/}
             <button
               onClick={toggleDetailsModal}
               className={`w-full py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
@@ -96,7 +96,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
               {text.modalButton}
             </button>
 
-            {/* Learn More */}
+            {/*Learn More button*/}
             <Link
               to="/FeaturePage"
               className={`w-full py-3 px-8 text-center bg-ut-red text-lg font-bold rounded-md hover:bg-ut-blue transition duration-300 shadow-lg ${
@@ -109,7 +109,7 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
         </div>
       </div>
 
-      {/* Details Modal */}
+      {/*Details Modal pop up*/}
       <Modal isOpen={isDetailsModalOpen} onClose={toggleDetailsModal}>
         <div className="p-6 sm:p-10 max-w-2xl w-full bg-ut-dark border-4 border-ut-red rounded-xl shadow-2xl">
           <h2
@@ -133,4 +133,3 @@ const FeaturedPresentation = ({ text, language, assetUrl }) => {
 };
 
 export default FeaturedPresentation;
-
