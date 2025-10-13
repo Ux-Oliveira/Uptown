@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App.jsx';
 import FeaturePage from './FeaturePage.jsx';
-import './index.css'; // Ensures global CSS and Tailwind utilities are applied
+import './index.css'; //this ensures that global CSS and Tailwind utilities are applied
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,3 +15,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
