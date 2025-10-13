@@ -1,5 +1,3 @@
-
-// NewsletterModal.jsx
 import React, { useState } from 'react';
 
 const NewsletterModal = ({ isOpen, onClose, text, language }) => {
@@ -8,15 +6,13 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
   const isRTL = language === 'ar';
   const [loading, setLoading] = useState(false);
 
-  // Submit handler now calls your /api/subscribe serverless endpoint
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
 
     const form = e.target;
     const email = (form.email?.value || '').trim();
-    // We keep name optional and empty for now (server supports merge_fields.FNAME)
-    const name = '';
+    const name = (form.name?.value || '').trim(); // now reading name input
 
     if (!email) {
       alert(isRTL ? 'الرجاء إدخال البريد الإلكتروني.' : 'Please enter an email.');
@@ -35,29 +31,23 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
       const json = await res.json();
 
       if (!res.ok) {
-        // Show Mailchimp error message if provided
         const msg = json?.error || json?.detail || json?.title || (isRTL ? 'فشل الاشتراك' : 'Subscription failed');
         alert(isRTL ? `خطأ: ${msg}` : `Error: ${msg}`);
         setLoading(false);
         return;
       }
 
-      // Success
       alert(
         isRTL
           ? 'شكرًا! تحقق من بريدك الإلكتروني لتأكيد الاشتراك (إذا كنت تستخدم تأكيد الاشتراك المزدوج).'
           : 'Thanks — check your email to confirm subscription (if using double opt-in).'
       );
 
-      // optional: reset the form
       form.reset();
-
-      // close modal (same behavior you had)
       onClose();
     } catch (err) {
       console.error('Subscribe error:', err);
       alert(isRTL ? 'حدث خطأ أثناء الاتصال بالخادم.' : 'An error occurred contacting the server.');
-      setLoading(false);
     } finally {
       setLoading(false);
     }
@@ -66,20 +56,17 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm p-4"
-      onClick={onClose} //This allows closing by clicking outside the modal
+      onClick={onClose}
     >
       <div
-        className={`bg-ut-dark p-8 rounded-xl shadow-2xl max-w-lg w-full transform transition-all duration-300 scale-100 border-2 border-ut-blue 
-                    ${isRTL ? 'text-right font-arabic' : 'text-left font-sans'}`}
-        onClick={(e) => e.stopPropagation()} //While this prevents closing when clicking inside the modal
+        className={`bg-ut-dark p-8 rounded-xl shadow-2xl max-w-lg w-full transform transition-all duration-300 scale-100 border-2 border-ut-blue ${
+          isRTL ? 'text-right font-arabic' : 'text-left font-sans'
+        }`}
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-start mb-6 border-b border-ut-red pb-4">
           <h2 className="text-3xl font-bold text-ut-red">{text.h2}</h2>
-          <button
-            onClick={onClose}
-            className="text-white text-2xl p-2 hover:text-ut-blue transition"
-            aria-label={isRTL ? 'إغلاق' : 'Close'}
-          >
+          <button onClick={onClose} className="text-white text-2xl p-2 hover:text-ut-blue transition" aria-label={isRTL ? 'إغلاق' : 'Close'}>
             &times;
           </button>
         </div>
@@ -88,12 +75,21 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
+            name="name"
+            type="text"
+            placeholder={isRTL ? 'الاسم (اختياري)' : 'Name (optional)'}
+            className={`w-full p-3 rounded-lg bg-gray-800 border border-ut-blue focus:border-ut-red focus:ring-1 focus:ring-ut-red text-white placeholder-gray-500 transition duration-200 ${
+              isRTL ? 'rtl' : 'ltr'
+            }`}
+          />
+          <input
             name="email"
             type="email"
             required
             placeholder={text.placeholder}
-            className={`w-full p-3 rounded-lg bg-gray-800 border border-ut-blue focus:border-ut-red focus:ring-1 focus:ring-ut-red text-white placeholder-gray-500 transition duration-200 
-                            ${isRTL ? 'rtl' : 'ltr'}`}
+            className={`w-full p-3 rounded-lg bg-gray-800 border border-ut-blue focus:border-ut-red focus:ring-1 focus:ring-ut-red text-white placeholder-gray-500 transition duration-200 ${
+              isRTL ? 'rtl' : 'ltr'
+            }`}
           />
           <button
             type="submit"
