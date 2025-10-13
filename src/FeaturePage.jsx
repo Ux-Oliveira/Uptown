@@ -148,7 +148,7 @@ function FeaturePage() {
             src={assetUrl('inner2.jpg')}
             alt="Inner Conflict Scene"
             className="w-full lg:w-1/2 rounded-lg shadow-2xl border-2 border-ut-blue"
-          /><a></div>
+          /></a></div>
           <div className="lg:w-1/2 space-y-4">
             <h2
               className={`text-3xl text-ut-blue font-bold ${
