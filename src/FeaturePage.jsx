@@ -16,7 +16,7 @@ function FeaturePage() {
   const text = content[language];
   const isRTL = language === 'ar';
 
-  // Apply direction + title dynamically
+  //this applies the direction of the the headers dynamically
   useEffect(() => {
     document.documentElement.lang = language;
     document.title =
@@ -26,7 +26,7 @@ function FeaturePage() {
     document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
   }, [language, isRTL]);
 
-  // Scroll button visibility
+  //function for button visibility
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollButton(window.scrollY > 200);
@@ -35,15 +35,15 @@ function FeaturePage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Scroll-to-top handler
+  //funftion for scroll-to-top button
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Language toggle
+  //this is the language toggle button
   const toggleLanguage = () => setLanguage((prev) => (prev === 'en' ? 'ar' : 'en'));
 
-  // Navigate to home (replace with your actual homepage route)
+  //this is the scroll back up button. It goes back up to the home section
   const scrollToHome = () => {
     window.location.href = '/';
   };
@@ -56,7 +56,7 @@ function FeaturePage() {
           language === 'en' ? 'Bebas Neue, sans-serif' : 'Cairo, sans-serif',
       }}
     >
-      {/* Navbar */}
+      {/*The navigation bar*/}
       <Navbar
         text={{
           home: text.nav.home,
@@ -70,7 +70,7 @@ function FeaturePage() {
         assetUrl={assetUrl}
       />
 
-      {/* Newsletter modal */}
+      {/*The newsletter pop-up modal*/}
       <NewsletterModal
         isOpen={showNewsletter}
         onClose={() => setShowNewsletter(false)}
@@ -83,9 +83,9 @@ function FeaturePage() {
         language={language}
       />
 
-      {/* Main Content */}
+      {/*Configuration for the main content of the page*/}
       <main className="pt-24 px-6 sm:px-12 lg:px-24 space-y-24">
-        {/* Header */}
+        {/*Header*/}
         <section className="text-center max-w-3xl mx-auto">
           <h1
             className={`text-4xl sm:text-6xl font-bold text-ut-red mb-6 ${
@@ -107,7 +107,7 @@ function FeaturePage() {
           </p>
         </section>
 
-        {/* Paragraph 1 - Image Left */}
+        {/*Paragraph 1 - Image to the Left*/}
         <section
           className={`flex flex-col lg:flex-row items-center gap-8 ${
             isRTL ? 'lg:flex-row-reverse' : ''
@@ -138,7 +138,7 @@ function FeaturePage() {
           </div>
         </section>
 
-        {/* Paragraph 2 - Image Right */}
+        {/*Paragraph 2 - Image to the Right*/}
         <section
           className={`flex flex-col lg:flex-row items-center gap-8 ${
             isRTL ? 'lg:flex-row' : 'lg:flex-row-reverse'
@@ -169,7 +169,7 @@ function FeaturePage() {
           </div>
         </section>
 
-        {/* Paragraph 3 - Image Left */}
+        {/*Paragraph 3 - Image to the Left*/}
         <section
           className={`flex flex-col lg:flex-row items-center gap-8 ${
             isRTL ? 'lg:flex-row-reverse' : ''
@@ -203,7 +203,7 @@ function FeaturePage() {
         </section>
       </main>
 
-      {/* Scroll to top button */}
+      {/*Finalizing the scroll to top button*/}
       {showScrollButton && (
         <button
           onClick={scrollToTop}
@@ -214,7 +214,7 @@ function FeaturePage() {
         </button>
       )}
 
-      {/* Footer */}
+      {/*Footer*/}
       <footer className="mt-24 py-6 bg-black text-center text-gray-500 text-sm border-t border-gray-700">
         © 2025 UPTOWN FILM — All Rights Reserved.
       </footer>
