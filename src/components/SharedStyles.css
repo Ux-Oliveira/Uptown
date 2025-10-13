@@ -88,5 +88,12 @@ smoother slide animations for About backgrounds, and a slow pulse animation.*/
   animation: imagePulse 6s ease-in-out infinite;
 }
 
+/* Pause the pulse on hover */
+.animate-image-pulse:hover {
+  animation-play-state: paused;
+  transform: scale(1.03); /* hold slightly enlarged state when hovered */
+}
+
+
 
 
