@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import FeaturedPresentation from './components/FeaturedPresentation';
 import NewsletterSection from './components/Newsletter';
-import NewsletterModal from './components/NewsletterModal'; // use the correct modal
+import NewsletterModal from './components/NewsletterModal'; // <- use working modal
 import About from './components/About';
 
 const assetUrl = (filename) => `/${filename}`;
@@ -49,7 +49,7 @@ function App() {
         assetUrl={assetUrl}
       />
 
-      {/* Replaced stub modal with working NewsletterModal */}
+      {/* Working newsletter modal with all original modal content */}
       <NewsletterModal
         isOpen={isModalOpen}
         onClose={toggleModal}
@@ -62,7 +62,6 @@ function App() {
           <Home text={text} language={language} assetUrl={assetUrl} />
         </section>
 
-        {/* Reduced top padding here */}
         <section id="featured" ref={featuredRef} className="pt-8 pb-20">
           <FeaturedPresentation text={text.featured} language={language} assetUrl={assetUrl} />
         </section>
