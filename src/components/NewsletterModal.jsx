@@ -64,19 +64,22 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Add the big H1 at the top */}
+        {/* Big H1 title */}
         <h1 className={`text-3xl font-bold mb-4 text-ut-red ${isRTL ? 'font-arabic text-right' : 'font-sans text-left'}`}>
           {text.h1}
         </h1>
 
-        <div className="flex justify-between items-start mb-6 border-b border-ut-red pb-4">
-          <h2 className="text-2xl font-bold text-ut-red">{text.h2}</h2>
-          <button onClick={onClose} className="text-white text-2xl p-2 hover:text-ut-blue transition" aria-label={isRTL ? 'إغلاق' : 'Close'}>
-            &times;
-          </button>
-        </div>
+        {/* Optional small subtitle */}
+        {text.title && (
+          <h2 className={`text-2xl font-bold text-ut-red mb-2 ${isRTL ? 'font-arabic' : 'font-sans'}`}>
+            {text.title}
+          </h2>
+        )}
 
-        <p className="text-gray-300 mb-6 text-lg">{text.p}</p>
+        {/* Optional description paragraph */}
+        {text.description && (
+          <p className="text-gray-300 mb-6 text-lg">{text.description}</p>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -87,15 +90,15 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
               isRTL ? 'rtl' : 'ltr'
             }`}
           />
-         <input
-          name="email"
-          type="email"
-          required
-          placeholder={isRTL ? text.emailPlaceholder : text.emailPlaceholder} // <-- use emailPlaceholder
-         className={`w-full p-3 rounded-lg bg-gray-800 border border-ut-blue focus:border-ut-red focus:ring-1 focus:ring-ut-red text-white placeholder-gray-500 transition duration-200 ${
-    isRTL ? 'rtl' : 'ltr'
-  }`}
-/>
+          <input
+            name="email"
+            type="email"
+            required
+            placeholder={text.emailPlaceholder}
+            className={`w-full p-3 rounded-lg bg-gray-800 border border-ut-blue focus:border-ut-red focus:ring-1 focus:ring-ut-red text-white placeholder-gray-500 transition duration-200 ${
+              isRTL ? 'rtl' : 'ltr'
+            }`}
+          />
 
           <button
             type="submit"
@@ -104,7 +107,7 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
               loading ? 'opacity-60 cursor-not-allowed' : ''
             }`}
           >
-            {loading ? (isRTL ? 'جارٍ الإرسال...' : 'Sending...') : text.buttonText}
+            {loading ? (isRTL ? 'جارٍ الإرسال...' : 'Sending...') : text.button}
           </button>
         </form>
       </div>
@@ -113,4 +116,3 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
 };
 
 export default NewsletterModal;
-
