@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       method: 'PUT', // upsert: create or update
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `apikey ${API_KEY}`,
+        Authorization: `Basic ${Buffer.from(`anystring:${API_KEY}`).toString('base64')}`,
       },
       body: JSON.stringify(body),
     });
