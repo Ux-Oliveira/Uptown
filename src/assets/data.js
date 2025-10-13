@@ -1,3 +1,5 @@
+//this file is meant to guarante the duo-translation of every single piece of content in it.
+  //It has to be updated with each new content addition to the home page 
 export const content = {
   en: {
     company: "UPTOWN FILM",
@@ -59,7 +61,7 @@ export const content = {
   },
 
   ar: {
-    company: "أبتاون‌ فيلم", // restored original spacing between words
+    company: "أبتاون‌ فيلم",
    // motto: "شركة رائدة في إنتاج الأفلام وصناعة قصص مؤثرة وعالية الجودة.", // plain motto text
     nav: {
       home: "الرئيسية",
@@ -117,5 +119,6 @@ export const content = {
     },
   },
 };
+
 
 
