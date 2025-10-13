@@ -12,7 +12,7 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
 
     const form = e.target;
     const email = (form.email?.value || '').trim();
-    const name = (form.name?.value || '').trim(); // now reading name input
+    const name = (form.name?.value || '').trim();
 
     if (!email) {
       alert(isRTL ? 'الرجاء إدخال البريد الإلكتروني.' : 'Please enter an email.');
@@ -64,8 +64,13 @@ const NewsletterModal = ({ isOpen, onClose, text, language }) => {
         }`}
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Add the big H1 at the top */}
+        <h1 className={`text-3xl font-bold mb-4 text-ut-red ${isRTL ? 'font-arabic text-right' : 'font-sans text-left'}`}>
+          {text.h1}
+        </h1>
+
         <div className="flex justify-between items-start mb-6 border-b border-ut-red pb-4">
-          <h2 className="text-3xl font-bold text-ut-red">{text.h2}</h2>
+          <h2 className="text-2xl font-bold text-ut-red">{text.h2}</h2>
           <button onClick={onClose} className="text-white text-2xl p-2 hover:text-ut-blue transition" aria-label={isRTL ? 'إغلاق' : 'Close'}>
             &times;
           </button>
