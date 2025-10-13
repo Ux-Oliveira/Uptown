@@ -1,0 +1,56 @@
+Hi.
+
+This is a detailed guide to each file that make up the Uptown Film website.
+
+The files are rooted here in Github. But the files are deployed in Vercel. While the email newsletter are managed in Mailchimp.
+
+Folders:
+
+🔴 api: This folder keeps the [subscribe.js] file. Which sets up the backend of the newsletter. This file is responsible for connecting the page to Mail Chimp. Sending the name and email put in the newsletter
+to the Mailchimp email manager;
+ 
+🔴 public: This folder keeps all the graphics. The photos, gifs, logos and icons. The file [sitemap.xml] exists to host Search Engine Optimization terms that
+can help push the website to the front page search engines;
+
+🔴 src: This folder hosts the core of the entire website.[App.jsx] is the body of this webapplication, [FeaturePage.jsx] is the additional page, [Main.jsx] is a map that tells the route for each file,
+[index.css] imports TailWind frameworks used for better costumization;
+  🔴 assets: here you find [Data.js] the one file responsible for the pages translation into English or Arabic;
+    🔴components: This folder maintains all the core components of the website. [Home.jsx], [About.jsx] and [FeaturedPresentation.jsx] are sections within the home page.
+      [Modal.jsx] this file allows the styling of the newsteller modal
+       to not interfere with the styling of the other components. [Navbar.jsx] is the navigation bar. [Newsletter.jsx] is the front-end component of the newsletter funtion while,
+         [NewsletterModal.jsx] is the pop up menu that pops up
+          when you click on the newsletter button. And [SharedStyle.css] is the style of the page shared across components, meaning, the colors, hover effects, fonts, etc.
+
+🔴 The root files: [index.html] is the skeleton of the page, it tells the web browser this is a webpage.
+  [package.json] this is where we call upon the frameworks and their funtions that make it so the page is rendered as a React/Vite application.
+   [package-lock.json] is a continuation of that file and where those frameworks and their functions are installed.
+    [post.config.js] - [tailwind.config.js] - [vercel.json] - [vite.config.js] all these files are additional configurations that
+     tell the Tailwind and Vite framework, as well as the Vercel platform, where to look for files.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+مرحباً.
+
+هذا دليل مفصل لكل ملف من ملفات موقع Uptown Film.
+
+الملفات متجذرة هنا في Github، ولكن يتم نشرها في Vercel. بينما تُدار النشرة الإخبارية عبر البريد الإلكتروني في Mailchimp.
+
+المجلدات:
+
+🔴 واجهة برمجة التطبيقات: يحتوي هذا المجلد على ملف [subscribe.js]. الذي يُنشئ الواجهة الخلفية للنشرة الإخبارية. هذا الملف مسؤول عن ربط الصفحة بـ Mail Chimp، وإرسال الاسم والبريد الإلكتروني المُدخلين في النشرة الإخبارية إلى مدير البريد الإلكتروني في Mailchimp.
+
+🔴 عام: يحتوي هذا المجلد على جميع الرسومات، من صور وملفات GIF وشعارات وأيقونات. يُستخدم ملف [sitemap.xml] لاستضافة مصطلحات تحسين محركات البحث التي تُساعد في ظهور الموقع في نتائج البحث الأولى.
+
+🔴 src: يستضيف هذا المجلد جوهر الموقع الإلكتروني بأكمله. [App.jsx] هو نص تطبيق الويب هذا، [FeaturePage.jsx] هي الصفحة الإضافية، [Main.jsx] هي خريطة توضح مسار كل ملف، [index.css] يستورد أطر عمل TailWind المستخدمة لتحسين التخصيص؛
+🔴 assets: هنا تجد [Data.js]، الملف الوحيد المسؤول عن ترجمة الصفحات إلى الإنجليزية أو العربية؛
+🔴components: يحتفظ هذا المجلد بجميع المكونات الأساسية للموقع الإلكتروني. [Home.jsx] و[About.jsx] و[FeaturedPresentation.jsx] هي أقسام داخل الصفحة الرئيسية.
+[Modal.jsx] يسمح هذا الملف بتنسيق نافذة Newsteller دون تداخل مع تنسيق المكونات الأخرى. [Navbar.jsx] هو شريط التنقل. [Newsletter.jsx] هو المكون الأمامي لوظيفة النشرة الإخبارية، بينما [NewsletterModal.jsx] هي القائمة المنبثقة التي تظهر عند النقر على زر النشرة الإخبارية. و[SharedStyle.css] هو نمط الصفحة المُشترك بين المكونات، أي الألوان، وتأثيرات التمرير، والخطوط، إلخ.
+
+🔴 الملفات الجذرية: [index.html] هو هيكل الصفحة، ويُخبر متصفح الويب بأنها صفحة ويب.
+
+[package.json] هو المكان الذي نستدعي فيه أطر العمل ووظائفها التي تجعل الصفحة تُعرض كتطبيق React/Vite.
+
+[package-lock.json] هو استمرار لهذا الملف، حيث تُثبّت أطر العمل ووظائفها.
+
+[post.config.js] - [tailwind.config.js] - [vercel.json] - [vite.config.js] كل هذه الملفات عبارة عن تكوينات إضافية تخبر إطار عمل Tailwind وVite، بالإضافة إلى منصة Vercel، بمكان البحث عن الملفات.
