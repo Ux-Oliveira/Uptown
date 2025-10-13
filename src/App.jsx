@@ -4,8 +4,8 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import FeaturedPresentation from './components/FeaturedPresentation';
 import NewsletterSection from './components/Newsletter';
+import NewsletterModal from './components/NewsletterModal'; // use the correct modal
 import About from './components/About';
-import Modal from './components/Modal';
 
 const assetUrl = (filename) => `/${filename}`;
 
@@ -49,40 +49,13 @@ function App() {
         assetUrl={assetUrl}
       />
 
-      <Modal isOpen={isModalOpen} onClose={toggleModal}>
-        <div className="p-8 max-w-lg w-full bg-ut-dark border-2 border-ut-red rounded-lg shadow-2xl">
-          <h1
-            className={`text-3xl font-bold mb-6 text-center text-ut-red ${
-              language === 'ar' ? 'font-arabic' : 'font-sans'
-            }`}
-          >
-            {text.newsletter.h1}
-          </h1>
-          <form className="flex flex-col space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="text"
-              placeholder={text.newsletter.namePlaceholder}
-              className={`p-3 bg-gray-900 border border-ut-blue rounded-md text-white placeholder-gray-500 transition duration-300 focus:border-ut-red focus:outline-none ${
-                language === 'ar' ? 'text-right' : 'text-left'
-              }`}
-            />
-            <input
-              type="email"
-              placeholder={text.newsletter.emailPlaceholder}
-              className={`p-3 bg-gray-900 border border-ut-blue rounded-md text-white placeholder-gray-500 transition duration-300 focus:border-ut-red focus:outline-none ${
-                language === 'ar' ? 'text-right' : 'text-left'
-              }`}
-            />
-            <button
-              type="submit"
-              className="w-full py-3 bg-ut-red hover:bg-ut-blue transition duration-300 font-bold rounded-md"
-              onClick={toggleModal}
-            >
-              {text.newsletter.button}
-            </button>
-          </form>
-        </div>
-      </Modal>
+      {/* Replaced stub modal with working NewsletterModal */}
+      <NewsletterModal
+        isOpen={isModalOpen}
+        onClose={toggleModal}
+        text={text.newsletter}
+        language={language}
+      />
 
       <main className="pt-20">
         <section id="home" ref={homeRef}>
